@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Фотографии с походов Tau Trek по сезонам.">
+  <title>Галерея — Tau Trek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Tau<span>Trek</span></a>
+
+      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list list-reset">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tours.html">Туры</a></li>
+          <li><a class="nav__link" href="guides.html">Гиды</a></li>
+          <li><a class="nav__link nav__link--active" href="gallery.html" aria-current="page">Галерея</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="button header-cta" href="contacts.html">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: мозаика фото -->
+    <section class="section">
+      <div class="container">
+        <h1>Галерея</h1>
+        <p class="section__lead">Кадры, которые участники привезли из наших походов.</p>
+        <div class="mosaic">
+          <figure class="photo mosaic__big">
+            <img src="images/mountain-2.svg" alt="Розовый рассвет над горным хребтом" width="800" height="500" loading="lazy">
+            <figcaption>Рассвет на перевале Талгар</figcaption>
+          </figure>
+          <div class="mosaic__grid">
+            <figure class="photo">
+              <img src="images/mountain-1.svg" alt="Снежные пики под голубым небом" width="800" height="500" loading="lazy">
+              <figcaption>Пик Комсомола</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="images/mountain-4.svg" alt="Зелёное ущелье летом" width="800" height="500" loading="lazy">
+              <figcaption>Ущелье Бутаковка</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="images/mountain-3.svg" alt="Горы ночью под луной" width="800" height="500" loading="lazy">
+              <figcaption>Ночёвка на Фурманова</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="images/mountain-6.svg" alt="Осенние склоны на закате" width="800" height="500" loading="lazy">
+              <figcaption>Осень на Кок-Жайляу</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: сезоны -->
+    <section class="section section--white">
+      <div class="container">
+        <h2>Горы в разные сезоны</h2>
+        <p class="section__lead">Мы ходим круглый год — у каждого сезона свой характер.</p>
+        <ul class="seasons list-reset">
+          <li class="season season--spring">
+            <span class="season__months">Март — май</span>
+            <h3>Весна</h3>
+            <p>Цветут тюльпаны и подснежники, на вершинах ещё снег.</p>
+          </li>
+          <li class="season season--summer">
+            <span class="season__months">Июнь — август</span>
+            <h3>Лето</h3>
+            <p>Высокие маршруты, озёра и ночёвки под звёздами.</p>
+          </li>
+          <li class="season season--autumn">
+            <span class="season__months">Сентябрь — ноябрь</span>
+            <h3>Осень</h3>
+            <p>Золотые склоны и самая чистая погода для фото.</p>
+          </li>
+          <li class="season season--winter">
+            <span class="season__months">Декабрь — февраль</span>
+            <h3>Зима</h3>
+            <p>Снегоступы, горячий чай и тишина заснеженного леса.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--wide">
+          <a class="logo footer__logo" href="index.html">Tau<span>Trek</span></a>
+          <p>Походы выходного дня в горы Заилийского Алатау с сертифицированными гидами.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Страницы сайта">
+          <h2>Страницы</h2>
+          <ul class="list-reset">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="guides.html">Гиды</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col">
+          <h2>Контакты</h2>
+          <address>
+            <p>г. Алматы, пр. Аль-Фараби, 71</p>
+            <p><a href="tel:+77012345678">+7 701 234 56 78</a></p>
+            <p><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></p>
+          </address>
+        </section>
+
+        <section class="footer__col">
+          <h2>Соцсети</h2>
+          <ul class="socials list-reset">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

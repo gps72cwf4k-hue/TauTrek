@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Оставьте заявку на поход или свяжитесь с Tau Trek.">
+  <title>Контакты — Tau Trek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Tau<span>Trek</span></a>
+
+      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list list-reset">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tours.html">Туры</a></li>
+          <li><a class="nav__link" href="guides.html">Гиды</a></li>
+          <li><a class="nav__link" href="gallery.html">Галерея</a></li>
+          <li><a class="nav__link nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="button header-cta" href="contacts.html">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: форма + контакты -->
+    <section class="section">
+      <div class="container">
+        <h1>Записаться в поход</h1>
+        <p class="section__lead">Заполните форму, и гид свяжется с вами в течение дня.</p>
+        <div class="contact">
+          <form class="form" action="#" method="get">
+            <div class="form__row">
+              <div class="field">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="tour">Тур</label>
+              <select id="tour" name="tour">
+                <option>Кок-Жайляу</option>
+                <option>Большое Алматинское озеро</option>
+                <option>Пик Фурманова с ночёвкой</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Комментарий</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button class="button" type="submit">Отправить заявку</button>
+          </form>
+
+          <aside class="contact__info">
+            <h2>Как с нами связаться</h2>
+            <dl>
+              <dt>Офис</dt>
+              <dd>г. Алматы, пр. Аль-Фараби, 71</dd>
+              <dt>Телефон</dt>
+              <dd><a href="tel:+77012345678">+7 701 234 56 78</a></dd>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></dd>
+              <dt>Часы работы</dt>
+              <dd>Пн–Пт, 10:00–19:00</dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: частые вопросы -->
+    <section class="section section--white">
+      <div class="container faq">
+        <h2>Частые вопросы</h2>
+        <details>
+          <summary>Нужен ли опыт походов?</summary>
+          <p>Нет. Маршруты с пометкой «Новичкам» подходят всем, кто может пройти 10 км пешком.</p>
+        </details>
+        <details>
+          <summary>Что взять с собой?</summary>
+          <p>Удобную обувь, тёплую кофту, дождевик, воду и перекус. Полный список гид пришлёт после заявки.</p>
+        </details>
+        <details>
+          <summary>Можно ли с детьми?</summary>
+          <p>Да, на лёгкие маршруты — с 8 лет в сопровождении взрослого.</p>
+        </details>
+        <details>
+          <summary>Что если пойдёт дождь?</summary>
+          <p>При плохом прогнозе мы переносим поход и возвращаем деньги, если новая дата не подходит.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--wide">
+          <a class="logo footer__logo" href="index.html">Tau<span>Trek</span></a>
+          <p>Походы выходного дня в горы Заилийского Алатау с сертифицированными гидами.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Страницы сайта">
+          <h2>Страницы</h2>
+          <ul class="list-reset">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="guides.html">Гиды</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col">
+          <h2>Контакты</h2>
+          <address>
+            <p>г. Алматы, пр. Аль-Фараби, 71</p>
+            <p><a href="tel:+77012345678">+7 701 234 56 78</a></p>
+            <p><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></p>
+          </address>
+        </section>
+
+        <section class="footer__col">
+          <h2>Соцсети</h2>
+          <ul class="socials list-reset">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

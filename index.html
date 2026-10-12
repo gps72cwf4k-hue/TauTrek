@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Походы выходного дня в горы Алматы с опытными гидами.">
+  <title>Tau Trek — походы в горы Алматы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Tau<span>Trek</span></a>
+
+      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list list-reset">
+          <li><a class="nav__link nav__link--active" href="index.html" aria-current="page">Главная</a></li>
+          <li><a class="nav__link" href="tours.html">Туры</a></li>
+          <li><a class="nav__link" href="guides.html">Гиды</a></li>
+          <li><a class="nav__link" href="gallery.html">Галерея</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="button header-cta" href="contacts.html">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: hero (только на главной) -->
+    <section class="hero">
+      <p class="eyebrow">Заилийский Алатау</p>
+      <h1>Горы Алматы — в одном часе от города</h1>
+      <p>Однодневные и двухдневные походы для новичков и опытных. Мы берём на себя маршрут, снаряжение и безопасность.</p>
+      <div class="hero__actions">
+        <a class="button" href="tours.html">Выбрать тур</a>
+        <a class="button button--ghost" href="guides.html">Наши гиды</a>
+      </div>
+    </section>
+
+    <!-- Секция 2: картинка + текст -->
+    <section class="section section--white">
+      <div class="container split">
+        <div class="split__visual">
+          <img src="images/mountain-4.svg" alt="Зелёные склоны и заснеженная вершина под ясным небом" width="800" height="500">
+        </div>
+        <div class="split__content">
+          <p class="eyebrow">О нас</p>
+          <h2>Ходим в горы с 2018 года</h2>
+          <p>Tau Trek — команда из пяти гидов, которые выросли в Алматы и знают каждую тропу от Медеу до Большого Алматинского озера.</p>
+          <ul class="check-list list-reset">
+            <li>Группы не больше 12 человек</li>
+            <li>Аптечка, рация и страховка в каждом походе</li>
+            <li>Трансфер от центра города</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: цифры -->
+    <section class="section">
+      <div class="container">
+        <h2>Tau Trek в цифрах</h2>
+        <p class="section__lead">Восемь сезонов, сотни довольных участников и ни одного серьёзного происшествия.</p>
+        <ul class="stats list-reset">
+          <li class="stat"><strong class="stat__number">1 200+</strong> <span class="stat__label">участников</span></li>
+          <li class="stat"><strong class="stat__number">24</strong> <span class="stat__label">маршрута</span></li>
+          <li class="stat"><strong class="stat__number">5</strong> <span class="stat__label">гидов</span></li>
+          <li class="stat"><strong class="stat__number">4,9</strong> <span class="stat__label">средняя оценка</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Секция 4: призыв к действию -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Готовы к первому походу?</h2>
+            <p>Оставьте заявку — гид перезвонит и поможет выбрать маршрут.</p>
+          </div>
+          <a class="button" href="contacts.html">Оставить заявку</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--wide">
+          <a class="logo footer__logo" href="index.html">Tau<span>Trek</span></a>
+          <p>Походы выходного дня в горы Заилийского Алатау с сертифицированными гидами.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Страницы сайта">
+          <h2>Страницы</h2>
+          <ul class="list-reset">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="guides.html">Гиды</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col">
+          <h2>Контакты</h2>
+          <address>
+            <p>г. Алматы, пр. Аль-Фараби, 71</p>
+            <p><a href="tel:+77012345678">+7 701 234 56 78</a></p>
+            <p><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></p>
+          </address>
+        </section>
+
+        <section class="footer__col">
+          <h2>Соцсети</h2>
+          <ul class="socials list-reset">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

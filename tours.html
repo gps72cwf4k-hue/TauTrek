@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Маршруты, расписание и цены походов Tau Trek.">
+  <title>Туры — Tau Trek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Tau<span>Trek</span></a>
+
+      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list list-reset">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link nav__link--active" href="tours.html" aria-current="page">Туры</a></li>
+          <li><a class="nav__link" href="guides.html">Гиды</a></li>
+          <li><a class="nav__link" href="gallery.html">Галерея</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="button header-cta" href="contacts.html">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: карточки туров -->
+    <section class="section">
+      <div class="container">
+        <h1>Наши туры</h1>
+        <p class="section__lead">Три самых популярных маршрута. Все цены — за одного человека, трансфер включён.</p>
+
+        <div class="cards">
+          <article class="card">
+            <img class="card__image" src="images/mountain-1.svg" alt="Пик над ущельем в солнечный день" width="800" height="500" loading="lazy">
+            <div class="card__body">
+              <span class="card__badge">Новичкам</span>
+              <h2 class="h3">Кок-Жайляу</h2>
+              <p class="card__text">Лёгкий маршрут по широкой тропе к альпийскому лугу. 12 км, 6 часов.</p>
+              <div class="card__footer">
+                <span class="card__price">12 000 ₸</span>
+                <a class="button" href="contacts.html">Записаться</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__image" src="images/mountain-5.svg" alt="Горное озеро у подножия хребта" width="800" height="500" loading="lazy">
+            <div class="card__body">
+              <span class="card__badge">Хит сезона</span>
+              <h2 class="h3">Большое Алматинское озеро</h2>
+              <p class="card__text">Бирюзовое озеро на высоте 2500 м, обсерватория и виды на пик Советов. Подъём по каменистой тропе, нужен базовый опыт. 16 км, 8 часов.</p>
+              <div class="card__footer">
+                <span class="card__price">18 000 ₸</span>
+                <a class="button" href="contacts.html">Записаться</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__image" src="images/mountain-3.svg" alt="Ночные горы под звёздным небом" width="800" height="500" loading="lazy">
+            <div class="card__body">
+              <span class="card__badge">2 дня</span>
+              <h2 class="h3">Пик Фурманова с ночёвкой</h2>
+              <p class="card__text">Закат на вершине и ночь в палатках. 20 км.</p>
+              <div class="card__footer">
+                <span class="card__price">35 000 ₸</span>
+                <a class="button" href="contacts.html">Записаться</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: таблица расписания -->
+    <section class="section section--white">
+      <div class="container">
+        <h2>Расписание на октябрь</h2>
+        <div class="table-wrap">
+          <table class="schedule">
+            <caption>Ближайшие выходы, сбор в 7:00 у ТРЦ «Есентай Молл»</caption>
+            <thead>
+              <tr>
+                <th scope="col">Дата</th>
+                <th scope="col">Маршрут</th>
+                <th scope="col">Сложность</th>
+                <th scope="col">Гид</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" rowspan="2">Сб, 17 октября</th>
+                <td>Кок-Жайляу</td>
+                <td>Лёгкий</td>
+                <td>Айгерим Н.</td>
+              </tr>
+              <tr>
+                <td>Большое Алматинское озеро</td>
+                <td>Средний</td>
+                <td>Данияр С.</td>
+              </tr>
+              <tr>
+                <th scope="row">Вс, 18 октября</th>
+                <td>Кок-Жайляу</td>
+                <td>Лёгкий</td>
+                <td>Мадина К.</td>
+              </tr>
+              <tr>
+                <th scope="row">24–25 октября</th>
+                <td>Пик Фурманова с ночёвкой</td>
+                <td>Средний</td>
+                <td>Ерлан Т.</td>
+              </tr>
+              <tr>
+                <th scope="row">31 октября</th>
+                <td colspan="3">Закрытие сезона — маршрут объявим позже</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: как проходит поход -->
+    <section class="section">
+      <div class="container">
+        <h2>Как проходит поход</h2>
+        <p class="section__lead">От заявки до возвращения в город — четыре простых шага.</p>
+        <ol class="steps list-reset">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div>
+              <h3>Заявка</h3>
+              <p>Вы выбираете тур и оставляете контакты на странице «Контакты».</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div>
+              <h3>Звонок гида</h3>
+              <p>Гид уточняет опыт и присылает список вещей.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div>
+              <h3>Трансфер</h3>
+              <p>Утром автобус забирает группу от центра города.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div>
+              <h3>Маршрут и возвращение</h3>
+              <p>Поход с привалами, обед на маршруте и дорога домой к вечеру.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--wide">
+          <a class="logo footer__logo" href="index.html">Tau<span>Trek</span></a>
+          <p>Походы выходного дня в горы Заилийского Алатау с сертифицированными гидами.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Страницы сайта">
+          <h2>Страницы</h2>
+          <ul class="list-reset">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="guides.html">Гиды</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col">
+          <h2>Контакты</h2>
+          <address>
+            <p>г. Алматы, пр. Аль-Фараби, 71</p>
+            <p><a href="tel:+77012345678">+7 701 234 56 78</a></p>
+            <p><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></p>
+          </address>
+        </section>
+
+        <section class="footer__col">
+          <h2>Соцсети</h2>
+          <ul class="socials list-reset">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

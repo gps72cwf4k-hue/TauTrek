@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Команда гидов Tau Trek и отзывы участников.">
+  <title>Гиды — Tau Trek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Tau<span>Trek</span></a>
+
+      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list list-reset">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tours.html">Туры</a></li>
+          <li><a class="nav__link nav__link--active" href="guides.html" aria-current="page">Гиды</a></li>
+          <li><a class="nav__link" href="gallery.html">Галерея</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="button header-cta" href="contacts.html">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: команда -->
+    <section class="section section--white">
+      <div class="container">
+        <h1>Наши гиды</h1>
+        <p class="section__lead">У каждого — сертификат горного гида и курс первой помощи.</p>
+        <ul class="team list-reset">
+          <li class="member">
+            <span class="avatar" aria-hidden="true">АН</span>
+            <div>
+              <h2 class="h3">Айгерим Нурланова</h2>
+              <p class="member__role">Основатель, старший гид</p>
+              <p>Восемь лет водит группы. Знает истории каждого ущелья.</p>
+            </div>
+          </li>
+          <li class="member">
+            <span class="avatar" aria-hidden="true">ДС</span>
+            <div>
+              <h2 class="h3">Данияр Сейткали</h2>
+              <p class="member__role">Гид, инструктор по альпинизму</p>
+              <p>Отвечает за сложные маршруты и технику безопасности.</p>
+            </div>
+          </li>
+          <li class="member">
+            <span class="avatar" aria-hidden="true">МК</span>
+            <div>
+              <h2 class="h3">Мадина Касымова</h2>
+              <p class="member__role">Гид, фотограф</p>
+              <p>Ведёт лёгкие маршруты и снимает фото для участников.</p>
+            </div>
+          </li>
+          <li class="member">
+            <span class="avatar" aria-hidden="true">ЕТ</span>
+            <div>
+              <h2 class="h3">Ерлан Токтаров</h2>
+              <p class="member__role">Гид, походный повар</p>
+              <p>Организует ночёвки и готовит лучший плов на высоте 3000 м.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Секция 2: отзывы -->
+    <section class="section">
+      <div class="container">
+        <h2>Что говорят участники</h2>
+        <div class="reviews">
+          <figure class="review">
+            <blockquote>
+              <p>Первый раз в горах — боялась не дойти. Айгерим подобрала темп, и я дошла до озера!</p>
+            </blockquote>
+            <figcaption>— Алия, 24 года</figcaption>
+          </figure>
+          <figure class="review">
+            <blockquote>
+              <p>Ночёвка на Фурманова — лучшее, что было этим летом. Плов от Ерлана отдельно рекомендую.</p>
+            </blockquote>
+            <figcaption>— Тимур, 31 год</figcaption>
+          </figure>
+          <figure class="review">
+            <blockquote>
+              <p>Всё чётко: трансфер вовремя, гиды на связи, фото прислали уже вечером.</p>
+            </blockquote>
+            <figcaption>— Светлана, 45 лет</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--wide">
+          <a class="logo footer__logo" href="index.html">Tau<span>Trek</span></a>
+          <p>Походы выходного дня в горы Заилийского Алатау с сертифицированными гидами.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Страницы сайта">
+          <h2>Страницы</h2>
+          <ul class="list-reset">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="guides.html">Гиды</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col">
+          <h2>Контакты</h2>
+          <address>
+            <p>г. Алматы, пр. Аль-Фараби, 71</p>
+            <p><a href="tel:+77012345678">+7 701 234 56 78</a></p>
+            <p><a href="mailto:hello@tautrek.kz">hello@tautrek.kz</a></p>
+          </address>
+        </section>
+
+        <section class="footer__col">
+          <h2>Соцсети</h2>
+          <ul class="socials list-reset">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
