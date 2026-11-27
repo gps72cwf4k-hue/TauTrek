@@ -7,8 +7,10 @@
   <title>Галерея — Tau Trek</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=Spectral:ital,wght@0,500;0,600;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/common.js" defer></script>
+  <script src="js/gallery.js" defer></script>
 </head>
 <body>
 
@@ -16,15 +18,7 @@
     <div class="container site-header__inner">
       <a class="logo" href="index.html">Tau<span>Trek</span></a>
 
-      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
-      <input class="menu-toggle" type="checkbox" id="menu-toggle">
-      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <nav class="nav" aria-label="Главное меню">
+      <nav class="nav" id="site-nav" aria-label="Главное меню">
         <ul class="nav__list list-reset">
           <li><a class="nav__link" href="index.html">Главная</a></li>
           <li><a class="nav__link" href="tours.html">Туры</a></li>
@@ -35,6 +29,19 @@
       </nav>
 
       <a class="button header-cta" href="contacts.html">Записаться</a>
+
+      <div class="header-controls">
+        <a class="fav-counter" href="tours.html" aria-label="Избранные туры">
+          <span aria-hidden="true">♥</span>
+          <span class="fav-counter__num">0</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Включить тёмную тему">☾</button>
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -43,60 +50,96 @@
     <section class="section">
       <div class="container">
         <h1>Галерея</h1>
-        <p class="section__lead">Кадры, которые участники привезли из наших походов.</p>
+        <p class="section__lead">Места, куда мы водим группы, — от лугов Кок-Жайляу до перевала Талгар.</p>
         <div class="mosaic">
           <figure class="photo mosaic__big">
-            <img src="images/mountain-2.svg" alt="Розовый рассвет над горным хребтом" width="800" height="500" loading="lazy">
-            <figcaption>Рассвет на перевале Талгар</figcaption>
+            <img src="images/bao-night.jpg" alt="Млечный путь над хребтом и Большим Алматинским озером" width="1920" height="1282" loading="lazy">
+            <figcaption>Млечный путь над БАО</figcaption>
           </figure>
           <div class="mosaic__grid">
             <figure class="photo">
-              <img src="images/mountain-1.svg" alt="Снежные пики под голубым небом" width="800" height="500" loading="lazy">
+              <img src="images/komsomol.jpg" alt="Заснеженный пик Комсомола над зелёными холмами" width="1280" height="887" loading="lazy">
               <figcaption>Пик Комсомола</figcaption>
             </figure>
             <figure class="photo">
-              <img src="images/mountain-4.svg" alt="Зелёное ущелье летом" width="800" height="500" loading="lazy">
-              <figcaption>Ущелье Бутаковка</figcaption>
+              <img src="images/butakovka.jpg" alt="Осенняя поляна в Бутаковском ущелье" width="1280" height="720" loading="lazy">
+              <figcaption>Бутаковка осенью</figcaption>
             </figure>
             <figure class="photo">
-              <img src="images/mountain-3.svg" alt="Горы ночью под луной" width="800" height="500" loading="lazy">
-              <figcaption>Ночёвка на Фурманова</figcaption>
+              <img src="images/talgar-pass.jpg" alt="Заснеженный перевал Талгар под синим небом" width="1280" height="703" loading="lazy">
+              <figcaption>Перевал Талгар зимой</figcaption>
             </figure>
             <figure class="photo">
-              <img src="images/mountain-6.svg" alt="Осенние склоны на закате" width="800" height="500" loading="lazy">
-              <figcaption>Осень на Кок-Жайляу</figcaption>
+              <img src="images/kok-zhailau-meadow.jpg" alt="Луга и ельники плато Кок-Жайляу" width="1280" height="719" loading="lazy">
+              <figcaption>Луга Кок-Жайляу</figcaption>
             </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Секция 2: сезоны -->
+    <!-- Секция 2: слайдер (листает js/gallery.js) -->
     <section class="section section--white">
       <div class="container">
+        <h2>Фото с маршрутов</h2>
+        <p class="section__lead">Листайте кнопками или стрелками на клавиатуре.</p>
+        <div class="slider" id="slider">
+          <img class="slider__image" id="slider-image" src="images/hero.jpg" alt="" width="1280" height="853">
+          <button class="slider__btn slider__btn--prev" type="button" aria-label="Предыдущее фото">‹</button>
+          <button class="slider__btn slider__btn--next" type="button" aria-label="Следующее фото">›</button>
+        </div>
+        <div class="slider__info">
+          <p class="slider__caption" id="slider-caption"></p>
+          <p class="slider__counter" id="slider-counter" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: сезоны -->
+    <section class="section">
+      <div class="container">
         <h2>Горы в разные сезоны</h2>
-        <p class="section__lead">Мы ходим круглый год — у каждого сезона свой характер.</p>
+        <p class="section__lead">Мы ходим в горы круглый год.</p>
         <ul class="seasons list-reset">
           <li class="season season--spring">
-            <span class="season__months">Март — май</span>
+            <span class="season__months">Март–май</span>
             <h3>Весна</h3>
             <p>Цветут тюльпаны и подснежники, на вершинах ещё снег.</p>
           </li>
           <li class="season season--summer">
-            <span class="season__months">Июнь — август</span>
+            <span class="season__months">Июнь–август</span>
             <h3>Лето</h3>
             <p>Высокие маршруты, озёра и ночёвки под звёздами.</p>
           </li>
           <li class="season season--autumn">
-            <span class="season__months">Сентябрь — ноябрь</span>
+            <span class="season__months">Сентябрь–ноябрь</span>
             <h3>Осень</h3>
             <p>Золотые склоны и самая чистая погода для фото.</p>
           </li>
           <li class="season season--winter">
-            <span class="season__months">Декабрь — февраль</span>
+            <span class="season__months">Декабрь–февраль</span>
             <h3>Зима</h3>
-            <p>Снегоступы, горячий чай и тишина заснеженного леса.</p>
+            <p>Ходим на снегоступах по заснеженному лесу, на привалах пьём горячий чай.</p>
           </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Секция 4: авторы фотографий (требование лицензий CC BY-SA) -->
+    <section class="section credits" id="credits">
+      <div class="container">
+        <h2 class="h3">Фотографии</h2>
+        <p>Все снимки на сайте взяты с <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>.</p>
+        <ul class="credits__list list-reset">
+          <li>БАО с перевала (главная) — BitLord, CC BY-SA 4.0</li>
+          <li>Бутаковское ущелье весной (главная), Бутаковка осенью — Timas38, CC BY-SA 4.0</li>
+          <li>Тропа на Кок-Жайляу — Roman Check, CC BY-SA 4.0</li>
+          <li>Тропа к БАО — Nessi Gileva, CC0</li>
+          <li>Вершина Фурманова — Nikita Mikhailovskiy, CC BY-SA 4.0</li>
+          <li>Млечный путь над БАО — Нуржан Казбеков, CC BY-SA 4.0</li>
+          <li>Пик Комсомола — Dots foto, CC BY-SA 4.0</li>
+          <li>Луга Кок-Жайляу — Soorette salike, CC BY-SA 4.0</li>
+          <li>Перевал Талгар — Matti Blume, CC BY-SA 4.0</li>
         </ul>
       </div>
     </section>
@@ -141,7 +184,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+        <p>&copy; 2026 Tau Trek. Учебный проект. Фото — <a href="gallery.html#credits">Wikimedia Commons</a>.</p>
       </div>
     </div>
   </footer>
