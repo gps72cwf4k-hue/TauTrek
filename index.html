@@ -7,8 +7,10 @@
   <title>Tau Trek — походы в горы Алматы</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=Spectral:ital,wght@0,500;0,600;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/common.js" defer></script>
+  <script src="js/index.js" defer></script>
 </head>
 <body>
 
@@ -16,15 +18,7 @@
     <div class="container site-header__inner">
       <a class="logo" href="index.html">Tau<span>Trek</span></a>
 
-      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
-      <input class="menu-toggle" type="checkbox" id="menu-toggle">
-      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <nav class="nav" aria-label="Главное меню">
+      <nav class="nav" id="site-nav" aria-label="Главное меню">
         <ul class="nav__list list-reset">
           <li><a class="nav__link nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li><a class="nav__link" href="tours.html">Туры</a></li>
@@ -35,18 +29,33 @@
       </nav>
 
       <a class="button header-cta" href="contacts.html">Записаться</a>
+
+      <div class="header-controls">
+        <a class="fav-counter" href="tours.html" aria-label="Избранные туры">
+          <span aria-hidden="true">♥</span>
+          <span class="fav-counter__num">0</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Включить тёмную тему">☾</button>
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
     <!-- Секция 1: hero (только на главной) -->
     <section class="hero">
-      <p class="eyebrow">Заилийский Алатау</p>
-      <h1>Горы Алматы — в одном часе от города</h1>
-      <p>Однодневные и двухдневные походы для новичков и опытных. Мы берём на себя маршрут, снаряжение и безопасность.</p>
-      <div class="hero__actions">
-        <a class="button" href="tours.html">Выбрать тур</a>
-        <a class="button button--ghost" href="guides.html">Наши гиды</a>
+      <div class="container hero__inner">
+        <p class="eyebrow">Заилийский Алатау, 43° с. ш.</p>
+        <h1>Горы Алматы <em>в&nbsp;часе езды</em> от города</h1>
+        <p>Походы на день и на выходные — для тех, кто идёт впервые, и для тех, кто уже был на БАО. Маршрут, снаряжение и безопасность берём на себя.</p>
+        <div class="hero__actions">
+          <a class="button" href="tours.html">Выбрать тур</a>
+          <a class="button button--ghost" href="guides.html">Познакомиться с гидами</a>
+        </div>
       </div>
     </section>
 
@@ -54,12 +63,12 @@
     <section class="section section--white">
       <div class="container split">
         <div class="split__visual">
-          <img src="images/mountain-4.svg" alt="Зелёные склоны и заснеженная вершина под ясным небом" width="800" height="500">
+          <img src="images/about.jpg" alt="Ельник на зелёном склоне Бутаковского ущелья, вдали заснеженные вершины" width="1280" height="960" loading="lazy">
         </div>
         <div class="split__content">
           <p class="eyebrow">О нас</p>
           <h2>Ходим в горы с 2018 года</h2>
-          <p>Tau Trek — команда из пяти гидов, которые выросли в Алматы и знают каждую тропу от Медеу до Большого Алматинского озера.</p>
+          <p>В команде Tau Trek четыре гида. Все они выросли в Алматы и знают тропы от Медеу до Большого Алматинского озера.</p>
           <ul class="check-list list-reset">
             <li>Группы не больше 12 человек</li>
             <li>Аптечка, рация и страховка в каждом походе</li>
@@ -72,24 +81,39 @@
     <!-- Секция 3: цифры -->
     <section class="section">
       <div class="container">
-        <h2>Tau Trek в цифрах</h2>
-        <p class="section__lead">Восемь сезонов, сотни довольных участников и ни одного серьёзного происшествия.</p>
+        <h2>Девять сезонов без происшествий</h2>
+        <p class="section__lead">Считаем с первого выхода на Кок-Жайляу весной 2018-го.</p>
         <ul class="stats list-reset">
           <li class="stat"><strong class="stat__number">1 200+</strong> <span class="stat__label">участников</span></li>
           <li class="stat"><strong class="stat__number">24</strong> <span class="stat__label">маршрута</span></li>
-          <li class="stat"><strong class="stat__number">5</strong> <span class="stat__label">гидов</span></li>
+          <li class="stat"><strong class="stat__number">4</strong> <span class="stat__label">гида</span></li>
           <li class="stat"><strong class="stat__number">4,9</strong> <span class="stat__label">средняя оценка</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- Секция 4: призыв к действию -->
+    <!-- Секция 4: таймер до ближайшего выхода (считает js/index.js) -->
+    <section class="section countdown-section">
+      <div class="container">
+        <h2>До ближайшего похода</h2>
+        <p class="section__lead">Группы выходят каждую субботу в 7:00 от ТРЦ «Есентай Молл».</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown__item"><span class="countdown__num" id="cd-days">0</span><span class="countdown__label">дней</span></div>
+          <div class="countdown__item"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label">часов</span></div>
+          <div class="countdown__item"><span class="countdown__num" id="cd-minutes">00</span><span class="countdown__label">минут</span></div>
+          <div class="countdown__item"><span class="countdown__num" id="cd-seconds">00</span><span class="countdown__label">секунд</span></div>
+        </div>
+        <p class="countdown__date" id="countdown-date"></p>
+      </div>
+    </section>
+
+    <!-- Секция 5: призыв к действию -->
     <section class="section section--white">
       <div class="container">
         <div class="cta">
           <div>
-            <h2>Готовы к первому походу?</h2>
-            <p>Оставьте заявку — гид перезвонит и поможет выбрать маршрут.</p>
+            <h2>Не знаете, с чего начать?</h2>
+            <p>Оставьте телефон — гид перезвонит, спросит про опыт и подскажет тропу. Чаще всего начинают с Кок-Жайляу.</p>
           </div>
           <a class="button" href="contacts.html">Оставить заявку</a>
         </div>
@@ -136,7 +160,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+        <p>&copy; 2026 Tau Trek. Учебный проект. Фото — <a href="gallery.html#credits">Wikimedia Commons</a>.</p>
       </div>
     </div>
   </footer>

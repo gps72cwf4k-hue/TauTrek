@@ -7,8 +7,9 @@
   <title>Гиды — Tau Trek</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=Spectral:ital,wght@0,500;0,600;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/common.js" defer></script>
 </head>
 <body>
 
@@ -16,15 +17,7 @@
     <div class="container site-header__inner">
       <a class="logo" href="index.html">Tau<span>Trek</span></a>
 
-      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
-      <input class="menu-toggle" type="checkbox" id="menu-toggle">
-      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <nav class="nav" aria-label="Главное меню">
+      <nav class="nav" id="site-nav" aria-label="Главное меню">
         <ul class="nav__list list-reset">
           <li><a class="nav__link" href="index.html">Главная</a></li>
           <li><a class="nav__link" href="tours.html">Туры</a></li>
@@ -35,6 +28,19 @@
       </nav>
 
       <a class="button header-cta" href="contacts.html">Записаться</a>
+
+      <div class="header-controls">
+        <a class="fav-counter" href="tours.html" aria-label="Избранные туры">
+          <span aria-hidden="true">♥</span>
+          <span class="fav-counter__num">0</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Включить тёмную тему">☾</button>
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -43,14 +49,14 @@
     <section class="section section--white">
       <div class="container">
         <h1>Наши гиды</h1>
-        <p class="section__lead">У каждого — сертификат горного гида и курс первой помощи.</p>
+        <p class="section__lead">Все гиды сертифицированы и прошли курс первой помощи.</p>
         <ul class="team list-reset">
           <li class="member">
             <span class="avatar" aria-hidden="true">АН</span>
             <div>
               <h2 class="h3">Айгерим Нурланова</h2>
               <p class="member__role">Основатель, старший гид</p>
-              <p>Восемь лет водит группы. Знает истории каждого ущелья.</p>
+              <p>Водит группы с 2018 года — тогда же и основала Tau Trek.</p>
             </div>
           </li>
           <li class="member">
@@ -74,7 +80,7 @@
             <div>
               <h2 class="h3">Ерлан Токтаров</h2>
               <p class="member__role">Гид, походный повар</p>
-              <p>Организует ночёвки и готовит лучший плов на высоте 3000 м.</p>
+              <p>Организует ночёвки и готовит плов на высоте 3&nbsp;000&nbsp;м.</p>
             </div>
           </li>
         </ul>
@@ -88,13 +94,13 @@
         <div class="reviews">
           <figure class="review">
             <blockquote>
-              <p>Первый раз в горах — боялась не дойти. Айгерим подобрала темп, и я дошла до озера!</p>
+              <p>Я первый раз пошла в горы и боялась не дойти. Айгерим подобрала темп, и я дошла до самого Кок-Жайляу!</p>
             </blockquote>
             <figcaption>— Алия, 24 года</figcaption>
           </figure>
           <figure class="review">
             <blockquote>
-              <p>Ночёвка на Фурманова — лучшее, что было этим летом. Плов от Ерлана отдельно рекомендую.</p>
+              <p>Ночёвка на Фурманова стала лучшим, что было этим летом. Плов от Ерлана отдельно рекомендую.</p>
             </blockquote>
             <figcaption>— Тимур, 31 год</figcaption>
           </figure>
@@ -148,7 +154,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+        <p>&copy; 2026 Tau Trek. Учебный проект. Фото — <a href="gallery.html#credits">Wikimedia Commons</a>.</p>
       </div>
     </div>
   </footer>

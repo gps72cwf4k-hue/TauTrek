@@ -7,8 +7,11 @@
   <title>Контакты — Tau Trek</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=Spectral:ital,wght@0,500;0,600;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/common.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/contacts.js" defer></script>
 </head>
 <body>
 
@@ -16,15 +19,7 @@
     <div class="container site-header__inner">
       <a class="logo" href="index.html">Tau<span>Trek</span></a>
 
-      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
-      <input class="menu-toggle" type="checkbox" id="menu-toggle">
-      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <nav class="nav" aria-label="Главное меню">
+      <nav class="nav" id="site-nav" aria-label="Главное меню">
         <ul class="nav__list list-reset">
           <li><a class="nav__link" href="index.html">Главная</a></li>
           <li><a class="nav__link" href="tours.html">Туры</a></li>
@@ -35,6 +30,19 @@
       </nav>
 
       <a class="button header-cta" href="contacts.html">Записаться</a>
+
+      <div class="header-controls">
+        <a class="fav-counter" href="tours.html" aria-label="Избранные туры">
+          <span aria-hidden="true">♥</span>
+          <span class="fav-counter__num">0</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Включить тёмную тему">☾</button>
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -45,34 +53,44 @@
         <h1>Записаться в поход</h1>
         <p class="section__lead">Заполните форму, и гид свяжется с вами в течение дня.</p>
         <div class="contact">
-          <form class="form" action="#" method="get">
+          <form class="form" id="booking-form" action="#" method="get" novalidate>
             <div class="form__row">
               <div class="field">
                 <label for="name">Имя</label>
-                <input type="text" id="name" name="name" autocomplete="name" required>
+                <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+                <p class="field__error" id="name-error" aria-live="polite"></p>
               </div>
               <div class="field">
                 <label for="phone">Телефон</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+7 701 234 56 78" required aria-describedby="phone-error">
+                <p class="field__error" id="phone-error" aria-live="polite"></p>
               </div>
             </div>
             <div class="field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" autocomplete="email">
+              <label for="email">E-mail (необязательно)</label>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error">
+              <p class="field__error" id="email-error" aria-live="polite"></p>
             </div>
-            <div class="field">
-              <label for="tour">Тур</label>
-              <select id="tour" name="tour">
-                <option>Кок-Жайляу</option>
-                <option>Большое Алматинское озеро</option>
-                <option>Пик Фурманова с ночёвкой</option>
-              </select>
+            <div class="form__row">
+              <div class="field">
+                <label for="tour">Тур</label>
+                <!-- список туров заполняет js/contacts.js из js/data.js -->
+                <select id="tour" name="tour">
+                  <option>Кок-Жайляу</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="date">Желаемая дата</label>
+                <input type="date" id="date" name="date" required aria-describedby="date-error">
+                <p class="field__error" id="date-error" aria-live="polite"></p>
+              </div>
             </div>
             <div class="field">
               <label for="message">Комментарий</label>
               <textarea id="message" name="message" rows="4"></textarea>
             </div>
             <button class="button" type="submit">Отправить заявку</button>
+            <p class="form__success" id="form-success" role="status" hidden></p>
           </form>
 
           <aside class="contact__info">
@@ -96,22 +114,38 @@
     <section class="section section--white">
       <div class="container faq">
         <h2>Частые вопросы</h2>
-        <details>
-          <summary>Нужен ли опыт походов?</summary>
-          <p>Нет. Маршруты с пометкой «Новичкам» подходят всем, кто может пройти 10 км пешком.</p>
-        </details>
-        <details>
-          <summary>Что взять с собой?</summary>
-          <p>Удобную обувь, тёплую кофту, дождевик, воду и перекус. Полный список гид пришлёт после заявки.</p>
-        </details>
-        <details>
-          <summary>Можно ли с детьми?</summary>
-          <p>Да, на лёгкие маршруты — с 8 лет в сопровождении взрослого.</p>
-        </details>
-        <details>
-          <summary>Что если пойдёт дождь?</summary>
-          <p>При плохом прогнозе мы переносим поход и возвращаем деньги, если новая дата не подходит.</p>
-        </details>
+        <div class="faq__item">
+          <h3 class="faq__heading">
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-1">Нужен ли опыт походов?</button>
+          </h3>
+          <div class="faq__answer" id="faq-answer-1">
+            <p>Нет. Маршруты с пометкой «Новичкам» подходят всем, кто может пройти 12 км пешком.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__heading">
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-2">Что взять с собой?</button>
+          </h3>
+          <div class="faq__answer" id="faq-answer-2">
+            <p>Удобную обувь, тёплую кофту, дождевик, воду и перекус. Полный список гид пришлёт после заявки.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__heading">
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-3">Можно ли с детьми?</button>
+          </h3>
+          <div class="faq__answer" id="faq-answer-3">
+            <p>Да, на лёгкие маршруты берём детей с 8 лет в сопровождении взрослого.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__heading">
+            <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-4">Что если пойдёт дождь?</button>
+          </h3>
+          <div class="faq__answer" id="faq-answer-4">
+            <p>При плохом прогнозе мы переносим поход и возвращаем деньги, если новая дата не подходит.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -155,7 +189,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+        <p>&copy; 2026 Tau Trek. Учебный проект. Фото — <a href="gallery.html#credits">Wikimedia Commons</a>.</p>
       </div>
     </div>
   </footer>

@@ -7,8 +7,11 @@
   <title>Туры — Tau Trek</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=Spectral:ital,wght@0,500;0,600;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/common.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/tours.js" defer></script>
 </head>
 <body>
 
@@ -16,15 +19,7 @@
     <div class="container site-header__inner">
       <a class="logo" href="index.html">Tau<span>Trek</span></a>
 
-      <!-- Бургер без JavaScript: чекбокс + label. Открыто = :checked -->
-      <input class="menu-toggle" type="checkbox" id="menu-toggle">
-      <label class="burger" for="menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <nav class="nav" aria-label="Главное меню">
+      <nav class="nav" id="site-nav" aria-label="Главное меню">
         <ul class="nav__list list-reset">
           <li><a class="nav__link" href="index.html">Главная</a></li>
           <li><a class="nav__link nav__link--active" href="tours.html" aria-current="page">Туры</a></li>
@@ -35,6 +30,19 @@
       </nav>
 
       <a class="button header-cta" href="contacts.html">Записаться</a>
+
+      <div class="header-controls">
+        <a class="fav-counter" href="tours.html" aria-label="Избранные туры">
+          <span aria-hidden="true">♥</span>
+          <span class="fav-counter__num">0</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Включить тёмную тему">☾</button>
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -43,55 +51,40 @@
     <section class="section">
       <div class="container">
         <h1>Наши туры</h1>
-        <p class="section__lead">Три самых популярных маршрута. Все цены — за одного человека, трансфер включён.</p>
+        <p class="section__lead">Восемь маршрутов на любой уровень. Цены указаны за одного человека, трансфер включён.</p>
 
-        <div class="cards">
-          <article class="card">
-            <img class="card__image" src="images/mountain-1.svg" alt="Пик над ущельем в солнечный день" width="800" height="500" loading="lazy">
-            <div class="card__body">
-              <span class="card__badge">Новичкам</span>
-              <h2 class="h3">Кок-Жайляу</h2>
-              <p class="card__text">Лёгкий маршрут по широкой тропе к альпийскому лугу. 12 км, 6 часов.</p>
-              <div class="card__footer">
-                <span class="card__price">12 000 ₸</span>
-                <a class="button" href="contacts.html">Записаться</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="card__image" src="images/mountain-5.svg" alt="Горное озеро у подножия хребта" width="800" height="500" loading="lazy">
-            <div class="card__body">
-              <span class="card__badge">Хит сезона</span>
-              <h2 class="h3">Большое Алматинское озеро</h2>
-              <p class="card__text">Бирюзовое озеро на высоте 2500 м, обсерватория и виды на пик Советов. Подъём по каменистой тропе, нужен базовый опыт. 16 км, 8 часов.</p>
-              <div class="card__footer">
-                <span class="card__price">18 000 ₸</span>
-                <a class="button" href="contacts.html">Записаться</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="card__image" src="images/mountain-3.svg" alt="Ночные горы под звёздным небом" width="800" height="500" loading="lazy">
-            <div class="card__body">
-              <span class="card__badge">2 дня</span>
-              <h2 class="h3">Пик Фурманова с ночёвкой</h2>
-              <p class="card__text">Закат на вершине и ночь в палатках. 20 км.</p>
-              <div class="card__footer">
-                <span class="card__price">35 000 ₸</span>
-                <a class="button" href="contacts.html">Записаться</a>
-              </div>
-            </div>
-          </article>
+        <!-- Панель управления карточками: фильтр, поиск, сортировка -->
+        <div class="tours-toolbar">
+          <div class="filters" role="group" aria-label="Сложность маршрута">
+            <button class="filter-btn active" type="button" data-category="all">Все</button>
+            <button class="filter-btn" type="button" data-category="easy">Лёгкие</button>
+            <button class="filter-btn" type="button" data-category="medium">Средние</button>
+            <button class="filter-btn" type="button" data-category="hard">Сложные</button>
+          </div>
+          <div class="tours-toolbar__controls">
+            <label class="visually-hidden" for="tour-search">Поиск по названию</label>
+            <input type="search" id="tour-search" placeholder="Поиск по названию…">
+            <label class="visually-hidden" for="tour-sort">Сортировка</label>
+            <select id="tour-sort">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Цена: сначала дешёвые</option>
+              <option value="price-desc">Цена: сначала дорогие</option>
+              <option value="name-asc">Название: А–Я</option>
+              <option value="name-desc">Название: Я–А</option>
+            </select>
+          </div>
         </div>
+
+        <!-- Карточки создаёт js/tours.js из массива tours в js/data.js -->
+        <div class="cards" id="tour-cards"></div>
+        <p class="empty-message" id="tours-empty" hidden>Ничего не найдено. Попробуйте другой запрос или фильтр.</p>
       </div>
     </section>
 
     <!-- Секция 2: таблица расписания -->
     <section class="section section--white">
       <div class="container">
-        <h2>Расписание на октябрь</h2>
+        <h2>Расписание на январь</h2>
         <div class="table-wrap">
           <table class="schedule">
             <caption>Ближайшие выходы, сбор в 7:00 у ТРЦ «Есентай Молл»</caption>
@@ -105,31 +98,31 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" rowspan="2">Сб, 17 октября</th>
+                <th scope="row" rowspan="2">Сб, 9 января</th>
                 <td>Кок-Жайляу</td>
                 <td>Лёгкий</td>
                 <td>Айгерим Н.</td>
               </tr>
               <tr>
-                <td>Большое Алматинское озеро</td>
+                <td>Перевал Талгар на снегоступах</td>
                 <td>Средний</td>
                 <td>Данияр С.</td>
               </tr>
               <tr>
-                <th scope="row">Вс, 18 октября</th>
-                <td>Кок-Жайляу</td>
+                <th scope="row">Вс, 10 января</th>
+                <td>Бутаковский водопад</td>
                 <td>Лёгкий</td>
                 <td>Мадина К.</td>
               </tr>
               <tr>
-                <th scope="row">24–25 октября</th>
-                <td>Пик Фурманова с ночёвкой</td>
-                <td>Средний</td>
+                <th scope="row">Сб, 16 января</th>
+                <td>Звёздная ночь на БАО</td>
+                <td>Лёгкий</td>
                 <td>Ерлан Т.</td>
               </tr>
               <tr>
-                <th scope="row">31 октября</th>
-                <td colspan="3">Закрытие сезона — маршрут объявим позже</td>
+                <th scope="row">Сб, 23 января</th>
+                <td colspan="3">Зимний выход для опытных, маршрут объявим позже</td>
               </tr>
             </tbody>
           </table>
@@ -141,7 +134,7 @@
     <section class="section">
       <div class="container">
         <h2>Как проходит поход</h2>
-        <p class="section__lead">От заявки до возвращения в город — четыре простых шага.</p>
+        <p class="section__lead">От заявки до возвращения домой — четыре шага.</p>
         <ol class="steps list-reset">
           <li class="step">
             <span class="step__num" aria-hidden="true">1</span>
@@ -161,7 +154,7 @@
             <span class="step__num" aria-hidden="true">3</span>
             <div>
               <h3>Трансфер</h3>
-              <p>Утром автобус забирает группу от центра города.</p>
+              <p>В 7:00 автобус забирает группу у ТРЦ «Есентай Молл».</p>
             </div>
           </li>
           <li class="step">
@@ -175,6 +168,30 @@
       </div>
     </section>
   </main>
+
+  <!-- Модальное окно с деталями тура (заполняется из js/tours.js) -->
+  <div class="modal" id="tour-modal" aria-hidden="true">
+    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" aria-label="Закрыть">&times;</button>
+      <img class="modal__image" id="modal-image" src="images/kok-zhailau.jpg" alt="" width="1280" height="853">
+      <div class="modal__body">
+        <p class="card__badge" id="modal-badge"></p>
+        <h2 class="h3" id="modal-title">Тур</h2>
+        <p id="modal-text"></p>
+        <dl class="modal__facts">
+          <dt>Сложность</dt>
+          <dd id="modal-level"></dd>
+          <dt>Дистанция</dt>
+          <dd id="modal-distance"></dd>
+          <dt>Длительность</dt>
+          <dd id="modal-duration"></dd>
+          <dt>Цена</dt>
+          <dd id="modal-price"></dd>
+        </dl>
+        <a class="button" href="contacts.html">Записаться</a>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -215,7 +232,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Tau Trek. Учебный проект.</p>
+        <p>&copy; 2026 Tau Trek. Учебный проект. Фото — <a href="gallery.html#credits">Wikimedia Commons</a>.</p>
       </div>
     </div>
   </footer>
